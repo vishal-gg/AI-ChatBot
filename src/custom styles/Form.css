@@ -1,0 +1,42 @@
+.formContainer {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    backdrop-filter: blur(20px);
+    border-radius: 10px;
+    padding: 2.5rem;
+    box-shadow: 0 0 15px rgba(0, 0, 0, .2);
+    text-align: center;
+    min-width: 400px;
+    background-color: white;
+}
+
+.formContainer form {
+    display: flex;
+    gap: .5rem;
+    flex-flow: column wrap;
+}
+
+#or {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    padding: 1rem 0;
+}
+#or::before,
+#or::after {
+    content: '';
+    border-bottom: 1px solid #c9c9c9b7;
+    display: block;
+    width: 50%;
+}
+#or span {
+    padding: 0 .7rem;
+}
+
+@media(max-width: 450px) {
+    .formContainer {
+        min-width: 90vw;
+    }
+}

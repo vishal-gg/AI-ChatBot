@@ -1,0 +1,21 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+*,
+*::before,
+*::after
+{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.App {
+  max-width: 1500px;
+  margin: 0 auto;
+  font-family: 'Segoe UI', Tahoma, Verdana, sans-serif, Arial, Helvetica;
+}
+body {
+  background-color: #1a2d37;
+}

@@ -1,0 +1,39 @@
+.bg-modal {
+    background: url('/public/assets/bg-grain.png'),
+    radial-gradient(
+      80.4% 41.5% at 50% 0%,
+      rgba(255, 255, 255, 0.16) 0%,
+      rgba(255, 255, 255, 0) 100%
+    );
+    background-color: rgb(23 18 43);
+    line-height: 19px; 
+    font-size: 14px;
+}
+
+header {
+    backdrop-filter: blur(50px);
+}
+.separator {
+    width: 100%;
+    height: 1px;
+    background-image: linear-gradient(to right, var(--tw-gradient-stops));
+    --tw-gradient-from: rgb(255 255 255 / 0);
+    --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
+    --tw-gradient-stops: var(--tw-gradient-from), rgb(255 255 255 / 0.5), var(--tw-gradient-to);
+    --tw-gradient-to: rgb(255 255 255 / 0);
+    opacity: 0.4;
+}
+
+.overflow-y-auto::-webkit-scrollbar {
+    width: 10px;
+}
+.overflow-y-auto::-webkit-scrollbar-track {
+    background: transparent;
+}
+.overflow-y-auto::-webkit-scrollbar-thumb {
+    background: #47425c;
+    border-radius: 20px;
+}
+.overflow-y-auto::-webkit-scrollbar-thumb:hover {
+    background: #5d5b68;
+}
