@@ -7,10 +7,12 @@ import PrivateComp from "./Components/PrivateComp";
 import Dashboard from "./Components/Dashboard";
 import LogIn from "./Components/LogIn";
 import NotFound from "./Components/NotFound";
+import {Toaster} from 'sonner';
 
 function App() {
   return (
     <div className="App">
+      <Toaster position="top-center" richColors />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<LogIn />} />

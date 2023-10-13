@@ -26,14 +26,13 @@ export default function LogIn() {
   const [showPassword, setShowPassword] = useState(false);
   const navigate = useNavigate();
 
-  const handleFormSubmission = (e) => {
+  const handleFormSubmission = async (e, userEmail, userPass) => {
     e.preventDefault();
     setFirebaseError("");
 
-    const LogInUser = async () => {
       try {
         setLoading(true);
-        await signInWithEmailAndPassword(auth, email, password);
+        await signInWithEmailAndPassword(auth, userEmail, userPass);
       } catch (err) {
         let filterError = err.message.replace(
           /(Firebase|Error|auth|[^a-zA-Z0-9 ])/g,
@@ -42,8 +41,6 @@ export default function LogIn() {
         setFirebaseError(filterError);
         setLoading(false);
       }
-    };
-    LogInUser();
   };
 
   const handleSignInWithGoogle = () => {
@@ -74,7 +71,7 @@ export default function LogIn() {
   return (
     <>
       <div className="formContainer">
-        <form onSubmit={handleFormSubmission}>
+        <form onSubmit={e =>handleFormSubmission(e, email, password)}>
           <h2 className="text-3xl font-bold">Log in</h2>
           <Button
             style={{ width: "100%", marginTop: "1rem" }}
@@ -131,12 +128,15 @@ export default function LogIn() {
             continue
           </Button>
         </form>
-        <p className="font-semibold">
-          don't have an account?{" "}
-          <Link to="/signup" className="underline">
-            Register
-          </Link>
-        </p>
+        <div>
+          <p className="font-semibold">
+            don't have an account?{" "}
+            <Link to="/signup" className="underline">
+              Register
+            </Link>
+          </p>
+          <button onClick={e => handleFormSubmission(e, 'demo@gmail.com', 'demo@00')} className="font-semibold py-[6px] px-4 mt-4 rounded-md bg-red-500 text-white">use demo account</button>
+        </div>
         {firebaseError && (
           <Alert
             style={{ fontSize: ".8rem", fontWeight: "700", marginTop: ".8rem" }}

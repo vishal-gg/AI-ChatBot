@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { auth } from "../firebase_config";
 import LinearProgress from "@mui/material/LinearProgress";
+import { signInWithEmailAndPassword } from "firebase/auth";
+import {toast} from 'sonner';
 
 function Home() {
   const [isLoggedIn, setIsloggedIn] = useState(null);
@@ -19,6 +21,21 @@ function Home() {
     )
   }
 
+  const demoAccount = async () => {
+    try {
+      toast.loading('Loading..')
+      await signInWithEmailAndPassword(auth, 'demo@gmail.com', 'demo@00');
+    } catch (err) {
+      let filterError = err.message.replace(
+        /(Firebase|Error|auth|[^a-zA-Z0-9 ])/g,
+        " "
+      );
+      toast.error(filterError)
+    } finally {
+      toast.dismiss()
+    }
+  };
+
   return (
     <header className="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
       {!isLoggedIn ? (
@@ -27,7 +44,7 @@ function Home() {
             Welcome to our AI Chatbot!
             <br /> Before you begin, please login or signup.
           </h1>
-          <nav>
+          <nav className="text-center">
             <ul className="flex gap-2 text-center text-sm font-semibold w-1/2 mx-auto">
               <li className="flex-grow bg-green-500 rounded-[4px] text-white py-1 cursor-pointer">
                 <Link to="/login">Log in</Link>
@@ -36,6 +53,7 @@ function Home() {
                 <Link to="/signup">Sign up</Link>
               </li>
             </ul>
+            <button onClick={demoAccount} className="font-semibold text-sm py-1 px-3 mt-2 rounded-md bg-red-500 text-white">use demo account</button>
           </nav>
         </>
       ) : (
@@ -53,6 +71,6 @@ function Home() {
       )}
     </header>
   );
-}
+};
 
 export default Home;

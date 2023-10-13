@@ -63,6 +63,7 @@ function ChatBot({ name, profile }) {
     } catch (err) {
       setIsLoading(false);
       setError(err.message);
+      console.log(err)
     }
   };
 

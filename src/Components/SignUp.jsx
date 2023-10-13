@@ -53,11 +53,7 @@ function SignUp() {
     const signUpEmailAndPassword = async () => {
       try {
         setLoading(true);
-        if (email === "dummy@test.com" && password === "test123") {
-          await createUserWithEmailAndPassword(auth, email, password);
-        } else {
-          await createUserWithEmailAndPassword(auth, email, password);
-        }
+        await createUserWithEmailAndPassword(auth, email, password);
       } catch (err) {
         let filterError = err.message.replace(
           /(Firebase|Error|auth|weak|password|[^a-zA-Z0-9 ])/g,
@@ -91,7 +87,7 @@ function SignUp() {
   // Redirecting users to dashboad after they authenticated
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged((authUser) => {
-      authUser && navigate("/dashboard", {replace: true});
+      authUser && navigate("/dashboard", { replace: true });
     });
     return () => unsubscribe();
   }, [navigate]);
