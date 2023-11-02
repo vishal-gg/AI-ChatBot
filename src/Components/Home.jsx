@@ -44,16 +44,16 @@ function Home() {
             Welcome to our AI Chatbot!
             <br /> Before you begin, please login or signup.
           </h1>
-          <nav className="text-center">
-            <ul className="flex gap-2 text-center text-sm font-semibold w-1/2 mx-auto">
-              <li className="flex-grow bg-green-500 rounded-[4px] text-white py-1 cursor-pointer">
+          <nav className="text-center text-white">
+            <ul className="flex flex-wrap justify-center gap-2 text-center text-sm font-semibold">
+              <li className="px-4 min-w-fit py-1 bg-green-500 rounded-[4px] cursor-pointer">
                 <Link to="/login">Log in</Link>
               </li>
-              <li className="flex-grow bg-green-500 rounded-[4px] text-white py-1 cursor-pointer">
+              <li className="px-4 min-w-fit py-1 bg-green-500 rounded-[4px] cursor-pointer">
                 <Link to="/signup">Sign up</Link>
               </li>
             </ul>
-            <button onClick={demoAccount} className="font-semibold text-sm py-1 px-3 mt-2 rounded-md bg-red-500 text-white">use demo account</button>
+            <button onClick={demoAccount} className="bg-red-500 rounded-[4px] px-4 py-1 text-sm font-semibold mt-3">Demo account</button>
           </nav>
         </>
       ) : (

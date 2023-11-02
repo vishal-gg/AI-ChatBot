@@ -18,7 +18,7 @@ function Dashboard() {
 
 
   return (
-    <div className="h-screen p-4 flex justify-center items-center">
+    <div className="h-screen p-4 max-[678px]:p-0 flex justify-center items-center">
       <CanvasAnimation />
       <ChatBot name={userName} profile={userProfile} />
     </div>

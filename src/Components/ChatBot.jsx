@@ -73,7 +73,7 @@ function ChatBot({ name, profile }) {
   }, [fetchData, chatLog]);
 
   return (
-    <div className="max-w-[1020px] h-full max-h-[800px] w-full mx-auto grid grid-cols-[4rem,1fr] text-white rounded-2xl overflow-hidden bg-modal">
+    <div className="max-w-[1020px] h-full max-h-[678px] w-full mx-auto grid grid-cols-[4rem,1fr] max-[678px]:grid-cols-[3rem,1fr] text-white rounded-2xl max-[678px]:rounded-none overflow-hidden bg-modal">
       <div className="flex flex-col justify-between items-center py-4 border-r border-[rgba(255,255,255,.08)]">
         {profile ? (
           <img className="w-9 rounded-[50%]" src={profile} />
@@ -146,7 +146,7 @@ function ChatBot({ name, profile }) {
               </button>
               <div className="separator absolute bottom-0 left-0"></div>
             </header>
-            <div className="px-[15%]">
+            <div className="px-[10%]">
               {chatLog.length > 0 ? (
                 <ul>
                   {chatLog.map((msg, index) => (
@@ -200,7 +200,7 @@ function ChatBot({ name, profile }) {
               )}
             </div>
           </div>
-          <div className="input-section absolute bottom-0 left-0 w-full py-4 px-8 bg-[#120E22]">
+          <div className="input-section absolute bottom-0 left-0 w-full py-4 px-8 max-[678px]:px-2 bg-[#120E22]">
             {!error ? (
               <div>
                 <input
