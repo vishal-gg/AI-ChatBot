@@ -73,7 +73,7 @@ function ChatBot({ name, profile }) {
   }, [fetchData, chatLog]);
 
   return (
-    <div className="max-w-[1020px] h-full max-h-[678px] w-full mx-auto grid grid-cols-[4rem,1fr] max-[678px]:grid-cols-[3rem,1fr] text-white rounded-2xl max-[678px]:rounded-none overflow-hidden bg-modal">
+    <div className="max-w-[1220px] h-full max-h-[678px] w-full mx-auto grid grid-cols-[4rem,1fr] max-[678px]:grid-cols-[3rem,1fr] text-white rounded-2xl max-[678px]:rounded-none overflow-hidden bg-modal">
       <div className="flex flex-col justify-between items-center py-4 border-r border-[rgba(255,255,255,.08)]">
         {profile ? (
           <img className="w-9 rounded-[50%]" src={profile} />
